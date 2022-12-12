@@ -1,8 +1,8 @@
 <template>
   <div class="grid m-3 place-items-center">
 <div class="stack">
-  <div  class="w-72 h-72 card shadow-md backdrop text-primary-content">
-    <div class="flex justify-end m-3 p-3">
+  <div  class="w-72 h-72 card shadow-md backdrop text-primary-content inset-0 transform hover:-translate-x-30 transition duration-300">
+    <div class="flex justify-end m-4 p-4">
         <button class="border rounded-lg cursor-pointer p-2 text-white" @click="sliceCard">Skip</button>
     </div>
 
@@ -11,9 +11,9 @@
     </div>
   </div> 
 
-  <div class="w-72 h-72 card backdrop2 shadow text-primary-content">
+  <div class="w-72 h-72 card backdrop2 shadow text-primary-content inset-0 transform hover:-translate-x-30 transition duration-300">
     <div class="flex justify-between m-4 p-4">
-        <button class="border rounded-lg cursor-pointer p-2 text-white" @click="sliceCard">Back</button>
+        <button class="border rounded-lg cursor-pointer p-2 text-white" @click="">Back</button>
         <button class="border rounded-lg cursor-pointer p-2 text-white" @click="sliceCard">Skip</button>
     </div>
 
@@ -22,9 +22,9 @@
     </div>
   </div> 
 
-  <div class="w-72 h-72 card backdrop2 shadow text-primary-content">
+  <div class="w-72 h-72 card backdrop2 shadow text-primary-content inset-0 transform hover:-translate-x-30 transition duration-300">
     <div class="flex justify-between m-4 p-4">
-        <button class="border rounded-lg cursor-pointer p-2 text-white" @click="sliceCard">Back</button>
+        <button class="border rounded-lg cursor-pointer p-2 text-white" @click="">Back</button>
         <button class="border rounded-lg cursor-pointer p-2 text-white" @click="sliceCard">Skip</button>
     </div>
 
@@ -37,16 +37,21 @@
 </template>
   
   <script>
-
-
   export default {
     data() {
       return {
       }
     },
     methods: {
-      sliceCard() {
-        this.$refs.card.push(this.card.shift());
+      sliceCard(e) {
+        let stack = document.querySelector(".stack");
+
+[...stack.children].reverse().forEach(i => stack.append(i));
+
+
+  let card = document.querySelector(".card:nth-child");
+  if (e.target !== card) return;
+  card.style.animation = "translate 700ms backwards";
       },
       removeCard() {
         // Your code for removing a card goes here
@@ -64,6 +69,6 @@
   .backdrop2{
     background: linear-gradient(182.35deg, #113045 -6%, #437496 103.7%);
     border-radius: 30px;
-    opacity: 0.3;
+    /* opacity: 0.3; */
   }
   </style>
