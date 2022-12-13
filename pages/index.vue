@@ -1,7 +1,7 @@
 <template>
-<div card-stack>
+<div card-stack class="">
     <input id="card-0" name="card-set" type="radio" checked />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-end mb-8 p-4 ">
                 <label for="card-1" class="border rounded-lg cursor-pointer p-2 text-white">Skip</label>
@@ -15,7 +15,7 @@
     </div>
 
     <input id="card-1" name="card-set" type="radio" />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-between mb-8 p-4 ">
                 <label for="card-0" class="border rounded cursor-pointer p-1 text-white">Back</label>
@@ -30,7 +30,7 @@
     </div>
 
     <input id="card-2" name="card-set" type="radio" />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-between mb-8 p-4 ">
                 <label for="card-1" class="border rounded cursor-pointer p-1 text-white">Back</label>
@@ -45,7 +45,7 @@
     </div>
 
     <input id="card-3" name="card-set" type="radio" />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-between mb-8 p-4 ">
                 <label for="card-2" class="border rounded cursor-pointer p-1 text-white">Back</label>
@@ -60,7 +60,7 @@
     </div>
 
     <input id="card-4" name="card-set" type="radio" />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-between mb-8 p-4 ">
                 <label for="card-3" class="border rounded cursor-pointer p-1 text-white">Back</label>
@@ -75,7 +75,7 @@
     </div>
 
     <input id="card-5" name="card-set" type="radio" />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-between mb-8 p-4 ">
                 <label for="card-4" class="border rounded cursor-pointer p-1 text-white">Back</label>
@@ -90,7 +90,7 @@
     </div>
 
     <input id="card-6" name="card-set" type="radio" />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-between mb-8 p-4 ">
                 <label for="card-5" class="border rounded cursor-pointer p-1 text-white">Back</label>
@@ -105,7 +105,7 @@
     </div>
 
     <input id="card-7" name="card-set" type="radio" />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-between mb-8 p-4 ">
                 <label for="card-6" class="border rounded cursor-pointer p-1 text-white">Back</label>
@@ -120,7 +120,7 @@
     </div>
 
     <input id="card-8" name="card-set" type="radio" />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-between mb-8 p-4 ">
                 <label for="card-7" class="border rounded cursor-pointer p-1 text-white">Back</label>
@@ -135,7 +135,7 @@
     </div>
 
     <input id="card-9" name="card-set" type="radio" />
-    <div card class="w-72 backdrop2">
+    <div card class="backdrop2">
         <div class="content">
             <div class="flex justify-between mb-8 p-4 ">
                 <label for="card-8" class="border rounded cursor-pointer p-1 text-white">Back</label>
@@ -152,7 +152,7 @@
 </template>
   
  
-  <style scoped>
+  <style>
   .backdrop2{
     background: linear-gradient(182.35deg, #113045 -6%, #437496 103.7%);
     border-radius: 30px;
@@ -163,9 +163,8 @@
     will-change: transform;
     position: relative;
     width: 20rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
+    margin: auto;
+    margin-top: 2rem;
 }
 [name="card-set"] {
     display: none;
@@ -266,16 +265,6 @@
 [card] label {
     color: white;
     display: inline-block;
-    /* padding: 1rem 2rem; */  
     user-select: none;
 }
-/* [card] label:hover {
-    background-color: #6fda92;
-}
-[card] label:active {
-    background-color: #248c46;
-} */
-/* body {
-    background: #248c46;
-} */
-  </style>
+</style>
