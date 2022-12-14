@@ -1,195 +1,199 @@
 <template>
-    <div class="container mx-auto min-h-screen justify-center items-center">
-    
-      <div class="flex border rounded-full bg-blue-100 p-8 m-4 justify-around">
-        <h1 >Survey Plan</h1>
-        <div class="ml-20 w-52 h-8 bg-blue-200 rounded-full">
-            <div ref="myBar" class="progress h-8 rounded-full text-xs font-medium text-blue-100 text-center p-2 leading-none" :style="{ width: progress + '%' }">In Progress </div>
-        </div>
-      </div>  
-      
-    
-        <!-- Card -->
-        <div card-stack class="">
-        <p class="text-center m-2">Swipe left/right to the next question</p>
-        <input id="card-0" name="card-set" type="radio" checked />
-        <div card class="backdrop2 overflow-hidden">
-            <div class="content">
-                <div class="flex justify-end mb-8 p-4 ">
-                    <label for="card-1" class="border rounded-lg cursor-pointer p-2 text-white" @click="makeProgress">Skip</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does it contain the <br /> name of the owner of the property with no <br /> mistake?</p>
-                    <p class="mt-10 text-sm">1/10</p>
-                </div>
-            </div>
-        </div>
-    
-        <input id="card-1" name="card-set" type="radio" />
-        <div card class="backdrop2">
-            <div class="content">
-                <div class="flex justify-between mb-8 p-4 ">
-                    <label for="card-0" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
-                    <label for="card-2" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does the survey plan contain the name of the street and the name of the area including the Local government?</p>
-                    <p class="mt-5 text-sm">2/10</p>
-                </div>
-            </div>
-        </div>
-    
-        <input id="card-2" name="card-set" type="radio" />
-        <div card class="backdrop2">
-            <div class="content">
-                <div class="flex justify-between mb-8 p-4 ">
-                    <label for="card-1" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
-                    <label for="card-3" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does it contain the size of the land surveyed?</p>
-                    <p class="mt-10 text-sm">3/10</p>
-                </div>
-            </div>
-        </div>
-    
-        <input id="card-3" name="card-set" type="radio" />
-        <div card class="backdrop2">
-            <div class="content">
-                <div class="flex justify-between mb-8 p-4 ">
-                    <label for="card-2" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
-                    <label for="card-4" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does it show the survey plan number?</p>
-                    <p class="mt-10 text-sm">4/10</p>
-                </div>
-            </div>
-        </div>
-    
-        <input id="card-4" name="card-set" type="radio" />
-        <div card class="backdrop2">
-            <div class="content">
-                <div class="flex justify-between mb-8 p-4 ">
-                    <label for="card-3" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
-                    <label for="card-5" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does it have a stamp showing that the land is free from the government?</p>
-                    <p class="mt-10 text-sm">5/10</p>
-                </div>
-            </div>
-        </div>
-    
-        <input id="card-5" name="card-set" type="radio" />
-        <div card class="backdrop2">
-            <div class="content">
-                <div class="flex justify-between mb-8 p-4 ">
-                    <label for="card-4" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
-                    <label for="card-6" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does it hvae the date the survey plan was drawn?</p>
-                    <p class="mt-10 text-sm">6/10</p>
-                </div>
-            </div>
-        </div>
-    
-        <input id="card-6" name="card-set" type="radio" />
-        <div card class="backdrop2">
-            <div class="content">
-                <div class="flex justify-between mb-8 p-4 ">
-                    <label for="card-5" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
-                    <label for="card-7" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does it have a drawn out portion of the land survey and mapped out on the survey document?</p>
-                    <p class="mt-10 text-sm">7/10</p>
-                </div>
-            </div>
-        </div>
-    
-        <input id="card-7" name="card-set" type="radio" />
-        <div card class="backdrop2">
-            <div class="content">
-                <div class="flex justify-between mb-8 p-4 ">
-                    <label for="card-6" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
-                    <label for="card-8" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does it have the name, signature and logo of the surveyor who drew the plan?</p>
-                    <p class="mt-10 text-sm">8/10</p>
-                </div>
-            </div>
-        </div>
-    
-        <input id="card-8" name="card-set" type="radio" />
-        <div card class="backdrop2">
-            <div class="content">
-                <div class="flex justify-between mb-8 p-4 ">
-                    <label for="card-7" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
-                    <label for="card-9" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does it have the registered seal of the surveyor?</p>
-                    <p class="mt-10 text-sm">9/10</p>
-                </div>
-            </div>
-        </div>
-    
-        <input id="card-9" name="card-set" type="radio" />
-        <div card class="backdrop2">
-            <div class="content">
-                <div class="flex justify-between mb-8 p-4 ">
-                    <label for="card-8" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
-                </div>
-    
-                <div class="card-body flex text-center text-white p-4 ">
-                    <p class="text-2xl">Does it have beacon numbers?</p>
-                    <p class="mt-10 text-sm">10/10</p>
-                </div>
-            </div>
-        </div>
-    
+<div class="container mx-auto min-h-screen justify-center items-center">
+
+<div class="flex  border rounded-full bg-blue-100 p-8 m-4 justify-around">
+    <h1 class="">Survey Plan</h1>
+    <div class="ml-20 w-full h-8 bg-blue-200 rounded-full">
+        <div ref="myBar" class="progress h-8 rounded-full text-xs font-medium text-blue-100 text-center p-2 leading-none" :style="{ width: progress + '%' }">In Progress </div>
     </div>
+</div>
+
+
+<!-- Card -->
+<div card-stack class="">
+    <p class="text-center m-2">Swipe left/right to the next question</p>
+    <input id="card-0" name="card-set" type="radio" checked />
+    <div card class="backdrop2 overflow-hidden">
+        <div class="content">
+            <div class="flex justify-end mb-8 p-4 ">
+                <label for="card-1" class="border rounded-lg cursor-pointer p-2 text-white" @click="makeProgress">Skip</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does it contain the <br /> name of the owner of the property with no <br /> mistake?</p>
+                <p class="mt-10 text-sm">1/10</p>
+            </div>
+        </div>
     </div>
-    </template>
+
+    <input id="card-1" name="card-set" type="radio" />
+    <div card class="backdrop2">
+        <div class="content">
+            <div class="flex justify-between mb-8 p-4 ">
+                <label for="card-0" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
+                <label for="card-2" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does the survey plan contain the name of the street and the name of the area including the Local government?</p>
+                <p class="mt-5 text-sm">2/10</p>
+            </div>
+        </div>
+    </div>
+
+    <input id="card-2" name="card-set" type="radio" />
+    <div card class="backdrop2">
+        <div class="content">
+            <div class="flex justify-between mb-8 p-4 ">
+                <label for="card-1" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
+                <label for="card-3" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does it contain the size of the land surveyed?</p>
+                <p class="mt-10 text-sm">3/10</p>
+            </div>
+        </div>
+    </div>
+
+    <input id="card-3" name="card-set" type="radio" />
+    <div card class="backdrop2">
+        <div class="content">
+            <div class="flex justify-between mb-8 p-4 ">
+                <label for="card-2" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
+                <label for="card-4" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does it show the survey plan number?</p>
+                <p class="mt-10 text-sm">4/10</p>
+            </div>
+        </div>
+    </div>
+
+    <input id="card-4" name="card-set" type="radio" />
+    <div card class="backdrop2">
+        <div class="content">
+            <div class="flex justify-between mb-8 p-4 ">
+                <label for="card-3" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
+                <label for="card-5" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does it have a stamp showing that the land is free from the government?</p>
+                <p class="mt-10 text-sm">5/10</p>
+            </div>
+        </div>
+    </div>
+
+    <input id="card-5" name="card-set" type="radio" />
+    <div card class="backdrop2">
+        <div class="content">
+            <div class="flex justify-between mb-8 p-4 ">
+                <label for="card-4" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
+                <label for="card-6" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does it hvae the date the survey plan was drawn?</p>
+                <p class="mt-10 text-sm">6/10</p>
+            </div>
+        </div>
+    </div>
+
+    <input id="card-6" name="card-set" type="radio" />
+    <div card class="backdrop2">
+        <div class="content">
+            <div class="flex justify-between mb-8 p-4 ">
+                <label for="card-5" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
+                <label for="card-7" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does it have a drawn out portion of the land survey and mapped out on the survey document?</p>
+                <p class="mt-10 text-sm">7/10</p>
+            </div>
+        </div>
+    </div>
+
+    <input id="card-7" name="card-set" type="radio" />
+    <div card class="backdrop2">
+        <div class="content">
+            <div class="flex justify-between mb-8 p-4 ">
+                <label for="card-6" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
+                <label for="card-8" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does it have the name, signature and logo of the surveyor who drew the plan?</p>
+                <p class="mt-10 text-sm">8/10</p>
+            </div>
+        </div>
+    </div>
+
+    <input id="card-8" name="card-set" type="radio" />
+    <div card class="backdrop2">
+        <div class="content">
+            <div class="flex justify-between mb-8 p-4 ">
+                <label for="card-7" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
+                <label for="card-9" class="border rounded cursor-pointer p-1 text-white" @click="makeProgress">Skip</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does it have the registered seal of the surveyor?</p>
+                <p class="mt-10 text-sm">9/10</p>
+            </div>
+        </div>
+    </div>
+
+    <input id="card-9" name="card-set" type="radio" />
+    <div card class="backdrop2">
+        <div class="content">
+            <div class="flex justify-between mb-8 p-4 ">
+                <label for="card-8" class="border rounded cursor-pointer p-1 text-white" @click="decreaseProgress">Back</label>
+            </div>
+
+            <div class="card-body flex text-center text-white p-4 ">
+                <p class="text-2xl">Does it have beacon numbers?</p>
+                <p class="mt-10 text-sm">10/10</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>    
+</template>
       
-    <script>
+<script>
     export default {
-      data() {
-        return {
-            progress: 0
-        };
-      },
-      methods: {
-    
-        makeProgress() {
-          if(this.progress < 100) {
-            this.progress += 11;
-          }
+        data() {
+            return {
+                progress: 0
+            };
         },
-    
-        decreaseProgress(){
-            if(this.progress >= 100)
-            this.progress -= 12
-        }
-    
-       },
+        methods: {
+
+            makeProgress() {
+                var elem = this.$refs.myBar
+                if (this.progress < 100) {
+                    this.progress += 11;
+                    elem.style.transition = `1s linear`
+                }
+            },
+
+            decreaseProgress() {
+                var elem = this.$refs.myBar
+                if (this.progress > 0)
+                    this.progress -= 11
+                    elem.style.transition = `1s linear`
+            }
+
+        },
     };
-    </script> 
+</script> 
     
-      <style>
-        .progress{
+<style>
+.progress{
         background: linear-gradient(182.35deg, #113045 -6%, #437496 103.7%)
       }
       .backdrop2{
@@ -305,5 +309,5 @@
         color: white;
         display: inline-block;
         user-select: none;
-    }
-    </style>
+    }        
+</style>
