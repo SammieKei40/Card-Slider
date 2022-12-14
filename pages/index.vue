@@ -1,5 +1,8 @@
 <template>
-<div card-stack class="">
+<div>
+    
+    <div card-stack class="">
+    <p class="text-center m-2">Swipe left/right to the next question</p>
     <input id="card-0" name="card-set" type="radio" checked />
     <div card class="backdrop2">
         <div class="content">
@@ -148,6 +151,7 @@
         </div>
     </div>
 
+</div>
 </div>
 </template>
   
