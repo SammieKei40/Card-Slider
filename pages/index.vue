@@ -289,20 +289,14 @@
         box-shadow: 0 0.2rem 0 rgba(0, 0, 0, .2);
         justify-content: center;
         align-items: center;
-        z-index: 1;
         height: auto;
     }
-    [card]::before {
+    [card]::after {
         content: '';
         display: block;
         padding-bottom: 130%;
     }
     [card] .content {
-        /* flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        padding: 2rem;
-        text-align: center; */
         margin-top: -4%;
     }
     [card] label {
