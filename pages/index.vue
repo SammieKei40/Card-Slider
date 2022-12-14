@@ -1,10 +1,10 @@
 <template>
-<div class="container mx-auto">
+<div class="container mx-auto min-h-screen justify-center items-center">
 
-  <div class="flex border rounded-lg bg-blue-100 p-8 m-4 justify-around">
+  <div class="flex border rounded-full bg-blue-100 p-8 m-4 justify-around">
     <h1>Survey Plan</h1>
-    <div class="ml-32 w-full h-10 bg-gray-200 rounded-full dark:bg-gray-700">
-        <div ref="myBar" class="progress h-10 text-xs font-medium text-blue-100 text-center p-2 leading-none" style="width:0%">In Progress</div>
+    <div class="ml-20 w-52 h-8 bg-black rounded-full">
+        <div ref="myBar" class="progress  h-8 rounded-full text-xs font-medium text-blue-100 text-center p-2 leading-none" style="width:0%">In Progress</div>
     </div>
 
     <!-- <div class="w-full bg-gray-200 h-5 mb-6">
