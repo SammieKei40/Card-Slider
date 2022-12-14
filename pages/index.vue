@@ -1,13 +1,26 @@
 <template>
-<div>
-    
+<div class="container mx-auto">
+
+  <div class="flex border rounded-lg bg-blue-100 p-8 m-4 justify-around">
+    <h1>Survey Plan</h1>
+    <div class="ml-32 w-full h-10 bg-gray-200  dark:bg-gray-700">
+        <div ref="myBar" class="progress h-10 text-xs font-medium text-blue-100 text-center p-2 leading-none" style="width:0%">In Progress</div>
+    </div>
+
+    <!-- <div class="w-full bg-gray-200 h-5 mb-6">
+  <div class="bg-blue-600 h-5" style="width: 25%"></div>
+</div> -->
+  </div>  
+  
+
+    <!-- Card -->
     <div card-stack class="">
     <p class="text-center m-2">Swipe left/right to the next question</p>
     <input id="card-0" name="card-set" type="radio" checked />
-    <div card class="backdrop2">
+    <div card class="backdrop2 overflow-hidden">
         <div class="content">
             <div class="flex justify-end mb-8 p-4 ">
-                <label for="card-1" class="border rounded-lg cursor-pointer p-2 text-white">Skip</label>
+                <label for="card-1" class="border rounded-lg cursor-pointer p-2 text-white" @click="move">Skip</label>
             </div>
 
             <div class="card-body flex text-center text-white p-4 ">
@@ -155,8 +168,42 @@
 </div>
 </template>
   
- 
+<script>
+export default {
+  data() {
+    return {
+  
+    };
+  },
+  methods: {
+ move() {
+    var elem = this.$refs.myBar
+var width = 0;
+var id = null;
+var click = false;
+if(!click){
+  click = true;
+  id = setInterval(function() {
+    width++;
+    if (width > 100) ;
+    if (width % 100 === 0){
+    clearInterval(id);
+    click = false;
+    }
+    elem.style.width = width + '%';
+    elem.innerHTML = width * 1 + '%';
+  }, 30);
+}
+
+}
+   },
+};
+</script> 
+
   <style>
+    .progress{
+    background: linear-gradient(182.35deg, #113045 -6%, #437496 103.7%)
+  }
   .backdrop2{
     background: linear-gradient(182.35deg, #113045 -6%, #437496 103.7%);
     border-radius: 30px;
